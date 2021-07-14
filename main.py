@@ -12,8 +12,12 @@ st.set_page_config(page_title='Sample Machine Learning',layout='wide')
 st.title("Predictive Sales Analytics based upon past 7 Days")
 import warnings
 warnings.filterwarnings('ignore')
-with open('https://github.com/Ajaybabuds/Predictive/blob/30267b36846e90cebc0492f7d3eaac013b202efa/Pred_Analytics.pkl','rb') as file:
-    nt=pickle.load(file)
+from io import BytesIO
+import pickle
+import requests
+mLink = 'https://github.com/Ajaybabuds/Predictive/blob/1ba3af6bcb3e367656e2a73589a4b5ea7136f6c4/Pred_Analytics.pkl?raw=true'
+mfile = BytesIO(requests.get(mLink).content)
+nt = pickle.load(mfile)
 st.write("Select Date")
 s=st.date_input('Date to Predict')
 st.write("Enter Previous Week Sales")
