@@ -1,4 +1,3 @@
 pandas
 streamlit
-pyttsx3
 scikit-learn
