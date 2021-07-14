@@ -1,13 +1,13 @@
 import pickle
 import streamlit as st
 import numpy as np
-import pyttsx3
-engine=pyttsx3.init()
-voices=engine.getProperty('voices')
-en_voice_id="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_DAVID_11.0"
-engine.setProperty(en_voice_id,1)
-rate=engine.getProperty('rate')
-engine.setProperty(rate,0.02)
+#import pyttsx3
+#engine=pyttsx3.init()
+#voices=engine.getProperty('voices')
+#en_voice_id="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_DAVID_11.0"
+#engine.setProperty(en_voice_id,1)
+#rate=engine.getProperty('rate')
+#engine.setProperty(rate,0.02)
 st.set_page_config(page_title='Sample Machine Learning',layout='wide')
 st.title("Predictive Sales Analytics based upon past 7 Days")
 import warnings
@@ -41,9 +41,9 @@ holiday=st.select_slider("Is it Holiday or not",options=[0,1])
 if st.button("Display result"):
     st.write("Predictive Result is:")
     result=nt.predict([[d1,d2,d3,d4,d5,d6,d7,holiday,s.isocalendar()[2],s.month]])
-    res=np.round(result,2)
-    engine.say("Predictive Sales for the Date")
-    engine.say(s)
-    engine.say(res)
-    engine.runAndWait()
+    #res=np.round(result,2)
+    #engine.say("Predictive Sales for the Date")
+    #engine.say(s)
+   # engine.say(res)
+    #engine.runAndWait()
     st.write(np.round(result[0],2))
